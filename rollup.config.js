@@ -9,7 +9,7 @@ export default defineConfig({
         format: "es",
         name : "all-ui"
     },
-    external : ["react","react-dom"],
+    external : ["react","react-dom","react-icons"],
     plugins: [
          typescript({
             tsconfig: "tsconfig.json",
