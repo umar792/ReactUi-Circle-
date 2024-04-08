@@ -4,7 +4,6 @@ import { IoMenuSharp } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 
-
 type PropsTye = {
     iconStyle?: {
         menuIocn?: React.ReactNode,
@@ -29,7 +28,7 @@ const SideBar = ({ iconStyle, sideBarStyle, children }: PropsTye) => {
 
     return (
         <>
-            <div className={`cursor-pointer ${iconStyle?.position}`}
+            <div className={`cursor-pointer ${iconStyle?.position || "absolute"}`}
                 style={{
                     fontSize: iconStyle?.size || 20,
                     top: iconStyle?.top || 15,
@@ -48,8 +47,11 @@ const SideBar = ({ iconStyle, sideBarStyle, children }: PropsTye) => {
                 }
             </div>
 
+            {
+                ShowIocn && <div className="fixed z-[100] inset-0 bg-[rgba(0,0,0,.4)] transition-opacity"></div>
 
-            <div id="sidebar-multi-level-sidebar" className={`fixed top-0  z-40 w-64 h-screen transition-transform -translate-x-full 
+            }
+            <div id="sidebar-multi-level-sidebar" className={`fixed top-0  z-[111] w-64 h-screen transition-transform -translate-x-full 
             ${ShowIocn ? "translate-x-0" : (sideBarStyle?.right || sideBarStyle?.right === 0 ? "translate-x-[100%]" : "translate-x-[-100%]")
                 }
                     ${sideBarStyle?.backgroundColor === "white" ? "!text-black border-l-[rgba(0,0,0,.4)]" : "text-white"}
@@ -85,4 +87,4 @@ const SideBar = ({ iconStyle, sideBarStyle, children }: PropsTye) => {
     )
 }
 
-export  {SideBar};
+export { SideBar };
