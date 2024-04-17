@@ -17,3 +17,9 @@
         transform: translateX(0%);
     }
 }
+
+@media(max-width : 500px){
+    .react_ui_circle_navbar_div{
+        width: 100% !important;
+    }
+}
