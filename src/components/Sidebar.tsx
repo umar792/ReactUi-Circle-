@@ -48,7 +48,7 @@ const SideBar = ({ iconStyle, sideBarStyle, children }: PropsTye) => {
             </div>
 
             {
-                ShowIocn && <div className="fixed z-[100] inset-0 bg-[rgba(0,0,0,.4)] transition-opacity"></div>
+                ShowIocn && <div className="fixed z-[10] inset-0 bg-[rgba(0,0,0,.4)] transition-opacity"></div>
 
             }
             <div id="sidebar-multi-level-sidebar" className={`fixed top-0  z-[111] w-64 h-screen duration-[500] transition-transform -translate-x-full 
