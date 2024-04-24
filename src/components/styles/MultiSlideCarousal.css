@@ -1,0 +1,30 @@
+
+
+ 
+
+.multiSlider_box .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+ .multiSlider_box .swiper-slide {
+     text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+     display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+
+
+/* ------ media  */
+@media(max-width : 550px){
+    /* .multiSlider_box{
+        width: 100% !important;
+        
+    } */
+}

@@ -86,7 +86,68 @@ children?:  // your component
     <p  onClick={()=>  setshow(false)}>Helo</p>
     </LeftNavbar>
 
+## Use of Multi Carousal
 
+  Just call the component from reactui-circle and pass it some props and it will work, you can pass any react component as Component props then you can get return item in your react component and use it easily   
+
+  
+
+     import {MultiCarousal} from  "reactui-circle";
+     const data = [
+     {
+     // here your object data
+     }
+    ]
+    // breakpoints for responsive
+    const  defaultbreakpoints  = {
+    
+    0: {
+        slidesPerView:  3,
+        spaceBetween:  20
+    },
+    500: {
+       slidesPerView: 2,
+       spaceBetween: 20
+    },
+    800: {
+      slidesPerView: 3,
+      spaceBetween: 20
+     },
+    1280: {
+      slidesPerView: 4,
+      spaceBetween: 20
+     },
+     1550: {
+      slidesPerView: 5,
+      spaceBetween: 20
+     }
+    };
+    
+    // now just call the component and pass some props to it
+    <MultiCarousal
+    IconSize={80}
+    iconColor='blue'
+    topArrow={true}
+    Component={DataCom}
+    data={data}
+    breakPoints={defaultbreakpoints}
+    Carousalheight={450}
+    />
+    
+   // and you can pass the component like any of react component ,
+
+
+    
+    const  DataCom  = ({item}:any)=>{
+    return (
+    <div  className='w-[100%] h-[100%] border-2 rounded-lg overflow-hidden'>
+    <img  src={item?.image}  alt=""  className='w-[100%] h-[250px]'  />
+    <h1  className='my-2 font-bold px-3 text-[25px]'>{item?.heading}</h1>
+    <p  className='px-3'>{item?.description?.slice(0,100)}...</p> 
+    <p  className='my-[10px] font-extrabold px-3'>Sold {item?.sold}</p>
+    </div>
+    )
+    };
 
 
 
