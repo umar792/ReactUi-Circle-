@@ -3,7 +3,7 @@ import  { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Navigation, Pagination} from 'swiper/modules';
+import { Autoplay, Navigation, Pagination} from 'swiper/modules';
 import "./styles/MultiSlideCarousal.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -18,6 +18,8 @@ interface  MultiSlideCarousalProps {
   Component?  : any,
   data? : any[],
   Carousalheight? : number,
+  delay? :number,
+  hidebuttons? : boolean
 }
 
 
@@ -47,7 +49,7 @@ const defaultbreakpoints = {
 }
 
 
-const MultiCarousal = ({ topArrow,iconColor ,topArrowBorderColor,IconSize, breakPoints ,Component,data,Carousalheight }: MultiSlideCarousalProps) => {
+const MultiCarousal = ({ topArrow,iconColor ,topArrowBorderColor,IconSize, breakPoints ,Component,data,Carousalheight,delay,hidebuttons=false }: MultiSlideCarousalProps) => {
 
   const swiperRef = useRef<any>(null);
 
@@ -69,6 +71,7 @@ const MultiCarousal = ({ topArrow,iconColor ,topArrowBorderColor,IconSize, break
 
       {/* ---- Top Arrow  */}
       {
+       hidebuttons ? null :
         topArrow &&
         <div className='flex justify-end place-items-center gap-3 my-3 px-3'>
           <button className=' flex p-[4px] justify-center place-items-center rounded-full'
@@ -110,7 +113,8 @@ const MultiCarousal = ({ topArrow,iconColor ,topArrowBorderColor,IconSize, break
 
         navigation={true}
         pagination={true}
-        modules={[Navigation, Pagination,]}
+        autoplay={{delay : delay || 2500 }}
+        modules={[Navigation, Pagination,Autoplay]}
         className='mySwiper px-[10px] relative'
         ref={swiperRef}
         breakpoints={
@@ -137,7 +141,7 @@ const MultiCarousal = ({ topArrow,iconColor ,topArrowBorderColor,IconSize, break
         }
 
 
-        {
+        {  hidebuttons ? null :
           !topArrow &&
           <>
             <button className='absolute top-0 left-0 w-[50px]  h-[100%] z-[9999] flex justify-center place-items-center'>
